@@ -1,3 +1,6 @@
+# IDE 설정과 관련된 파일들
+.vscode/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
