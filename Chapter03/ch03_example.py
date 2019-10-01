@@ -35,6 +35,21 @@ def divide(num: int, divisor: int):
     return returnVal
 
 
+def sumOfThree(n: int):
+    '''
+    1부터 n까지의 자연수 중에서
+    3의 배수이거나 3을 포함하는 자연수의 합을
+    구하는 함수
+    '''
+    returnVal = 0
+
+    for i in range(1, n+1):
+        if i % 3 == 0 or ("3" in str(i)):
+            returnVal += i
+
+    return returnVal
+
+
 def greatCommonFactor(a: int, b: int):
     '''
     유클리드 호제법을 이용하여
@@ -49,25 +64,18 @@ def greatCommonFactor(a: int, b: int):
 
     rest = a % b
 
-    if rest == 0:
-        return b
+    if rest != 0:
+        return greatCommonFactor(b, rest)
+
     else:
-        greatCommonFactor(b, rest)
+        return b
 
 
-print(greatCommonFactor(15, 6))
+print(greatCommonFactor(9, 15))
 
 
-def sumOfThree(n: int):
-    '''
-    1부터 n까지의 자연수 중에서
-    3의 배수이거나 3을 포함하는 자연수의 합을
-    구하는 함수
-    '''
-    returnVal = 0
+def leastCommonMultiple(a: int, b: int):
+    return a*b/greatCommonFactor(a, b)
 
-    for i in range(1, n+1):
-        if i % 3 == 0 or ("3" in str(i)):
-            returnVal += i
 
-    return returnVal
+print(leastCommonMultiple(15, 9))
